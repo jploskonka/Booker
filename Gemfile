@@ -10,6 +10,11 @@ gem 'puma', '~> 3.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use bootstrap as frontend framework
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# Easier forms
+gem 'simple_form'
 
 # Use haml for views
 gem 'haml-rails', '~> 0.9'
