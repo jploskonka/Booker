@@ -1,3 +1,9 @@
-%ul
+%ul#bookmark-list
   - @bookmarks.each do |bookmark|
-    %li= bookmark.title
+    %li
+      = bookmark.title
+      = link_to 'edit', edit_bookmark_path(bookmark)
+      = link_to 'delete', bookmark, method: :delete
+
+#bookmark-new-form
+  = render 'form', bookmark: @new_bookmark
