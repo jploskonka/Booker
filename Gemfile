@@ -10,8 +10,13 @@ gem 'puma', '~> 3.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'autoprefixer-rails'
+
 # Use bootstrap as frontend framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# Icons
+gem 'font-awesome-rails'
 
 # Easier forms
 gem 'simple_form'
