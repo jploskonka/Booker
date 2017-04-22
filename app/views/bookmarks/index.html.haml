@@ -3,17 +3,7 @@
     Your bookmarks
     %button.bookmark-add-btn= fa_icon('plus')
 
-  = simple_form_for @new_bookmark, html: { class: ['bookmark-form--new', ('active' if @new_bookmark.errors.any?)] } do |f|
-    %h2 New bookmark
-
-    = f.input :title
-    = f.input :url
-    = f.input :shortening
-
-    .form-btn-group
-      = f.button :submit, class: 'form-submit'
-      %button.form-cancel{type: 'button'} Cancel
-
+  = render 'form', bookmark: @new_bookmark, headline: 'New bookmark'
 
   %ul.bookmark-list
     = render @bookmarks

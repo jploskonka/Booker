@@ -1,5 +1,10 @@
-= simple_form_for bookmark do |f|
+= simple_form_for bookmark, html: { class: ['bookmark-form--new', ('active' if bookmark.errors.any?)] } do |f|
+  %h2= headline
+
   = f.input :title
   = f.input :url
   = f.input :shortening
-  = f.button :submit
+
+  .form-btn-group
+    = f.button :submit, class: 'form-submit'
+    %button.form-cancel{ type: 'button' } Cancel
