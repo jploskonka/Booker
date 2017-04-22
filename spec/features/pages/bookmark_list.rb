@@ -11,9 +11,9 @@ module Pages
       page.has_current_path? PATH
     end
 
-    def has_bookmark?(title:)
+    def has_bookmark?(bookmark)
       within '.bookmark-list' do
-        page.has_link? title
+        page.has_link? bookmark.title
       end
     end
   end
