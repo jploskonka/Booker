@@ -3,6 +3,17 @@ require 'rails_helper'
 feature 'Bookmark list' do
   let!(:bookmark) { create(:bookmark) }
 
+  scenario 'testing js', js: true do
+    visit '/'
+    expect(page).not_to have_content('New bookmark')
+
+    within('.bookmark-list__heading') do
+      click_button 'Add'
+    end
+
+    expect(page).to have_content('New bookmark')
+  end
+
   scenario 'User visits bookmarks list' do
     visit '/'
 
