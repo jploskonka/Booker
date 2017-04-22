@@ -41,6 +41,11 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'launchy'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do
