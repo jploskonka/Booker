@@ -9,3 +9,7 @@ $modularscale: (
   @return $factor * ms(0);
 }
 
+@mixin v-padding($val: 0) {
+  padding-bottom: $val;
+  padding-top: $val;
+}
