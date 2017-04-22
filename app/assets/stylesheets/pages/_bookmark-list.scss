@@ -27,6 +27,21 @@
   }
 }
 
+// Hacky hack, Capybara does not seem
+// to render inline-block items with
+// icon font el inside it, and because of that
+// is unable to click on edit links :(
+//
+// More:
+// https://github.com/thoughtbot/capybara-webkit/issues/494
+// https://github.com/thoughtbot/capybara-webkit/issues/728
+// https://github.com/thoughtbot/capybara-webkit/issues/808
+.bookmark-list__edit {
+  display: block;
+  min-width: 1px;
+  min-height: 1px;
+}
+
 .bookmark-add-btn {
   @extend .btn, .btn-secondary, .pull-right;
   @include v-padding;
