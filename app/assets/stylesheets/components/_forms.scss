@@ -21,13 +21,21 @@
   margin-bottom: 0;
 }
 
+.form-btn-group {
+  @extend .btn-group;
+
+  justify-content: flex-end;
+  margin-top: vr(1);
+}
+
 .form-submit {
   @include base-form-control;
-  @extend .btn-success;
+  @extend .btn, .btn-success;
 
-  margin-top: vr(1);
+  &:hover { cursor: pointer; }
+}
 
-  &:hover {
-    cursor: pointer;
-  }
+.form-cancel {
+  @include base-form-control;
+  @extend .btn, .btn-danger;
 }

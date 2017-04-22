@@ -5,11 +5,14 @@
 
   = simple_form_for @new_bookmark, html: { class: ['bookmark-form--new', ('active' if @new_bookmark.errors.any?)] } do |f|
     %h2 New bookmark
+
     = f.input :title
     = f.input :url
     = f.input :shortening
 
-    = f.button :submit, class: 'form-submit'
+    .form-btn-group
+      = f.button :submit, class: 'form-submit'
+      %button.form-cancel{type: 'button'} Cancel
 
 
   %ul.bookmark-list

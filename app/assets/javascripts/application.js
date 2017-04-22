@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('click', '.bookmark-add-btn', function() {
+$(document).on('click', '.bookmark-add-btn, .form-cancel', function() {
   $('.bookmark-form--new').toggleClass('active');
 });
+
