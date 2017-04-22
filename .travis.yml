@@ -11,4 +11,4 @@ before_script:
   - cp config/database.yml.travis config/database.yml
 
 script:
-  - xvfb-run rspec
+  - xvfb-run bundle exec rspec

@@ -14,7 +14,7 @@ feature 'Bookmark list' do
     expect(page).to have_content('New bookmark')
   end
 
-  scenario 'User visits bookmarks list' do
+  xscenario 'User visits bookmarks list' do
     visit '/'
 
     within '.bookmark-list' do
@@ -22,7 +22,7 @@ feature 'Bookmark list' do
     end
   end
 
-  scenario 'User adds bookmark' do
+  xscenario 'User adds bookmark' do
     visit '/'
 
     within '#bookmark-new-form' do
@@ -41,7 +41,7 @@ feature 'Bookmark list' do
     end
   end
 
-  scenario 'User removes bookmark' do
+  xscenario 'User removes bookmark' do
     visit '/'
 
     within '#bookmark-list' do
@@ -52,7 +52,7 @@ feature 'Bookmark list' do
     expect(page).not_to have_content(bookmark.title)
   end
 
-  scenario 'User edits bookmark' do
+  xscenario 'User edits bookmark' do
     visit '/'
 
     within '#bookmark-list' do
