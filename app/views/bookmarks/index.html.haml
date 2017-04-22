@@ -1,5 +1,7 @@
 .bookmark-list__page
-  %h1.bookmark-list__heading Your bookmarks
+  %h1.bookmark-list__heading
+    Your bookmarks
+    %button#foo.btn.pull-right.btn-default Add
 
   = simple_form_for @new_bookmark, html: { class: 'bookmark-form--new' } do |f|
     %h2 New bookmark
@@ -12,8 +14,3 @@
 
   %ul.bookmark-list
     = render @bookmarks
-
-
--# %h1 Add bookmark
--# #bookmark-new-form
--#   = render 'form', bookmark: @new_bookmark

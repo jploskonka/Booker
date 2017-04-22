@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('click', '#foo', function() {
+  $('.bookmark-form--new').toggleClass('active');
+});
