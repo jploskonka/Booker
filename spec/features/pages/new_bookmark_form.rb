@@ -22,6 +22,10 @@ module Pages
       el.visible?
     end
 
+    def has_error_message?(field, text)
+      el.has_css?("#bookmark_#{field} + .help-block", text: text)
+    end
+
     private
 
     def el

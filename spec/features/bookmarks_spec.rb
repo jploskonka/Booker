@@ -28,6 +28,8 @@ feature 'Bookmark list' do
 
     expect(page).to be_open
     expect(form_new).to be_visible
+    expect(form_new).to have_error_message('title', "can't be blank")
+    expect(form_new).to have_error_message('url', "can't be blank")
   end
 
   xscenario 'User visits bookmarks list' do

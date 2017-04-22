@@ -8,13 +8,24 @@
 
 .control-label {
   display: block;
-  font-size: ms(-1);
+  font-size: ms(0);
   line-height: vr(1);
   margin: vr(1) 0 vr(0.5);
 }
 
 .form-control {
   @include base-form-control;
+
+  &[aria-invalid=true] {
+    border-color: #d9534f;
+
+    & + .help-block {
+      color: #d9534f;
+      font-size: ms(-1);
+      line-height: vr(1.5);
+      padding-left: $grid-gutter-width-base/4;
+    }
+  }
 }
 
 .form-group {
