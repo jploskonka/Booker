@@ -1,17 +1,24 @@
 require 'rails_helper'
 
+require_relative 'pages/bookmark_list'
+require_relative 'pages/new_bookmark_form'
+
 feature 'Bookmark list' do
   let!(:bookmark) { create(:bookmark) }
+  let(:page)      { Pages::BookmarkList.new }
+  let(:form_new)  { Pages::NewBookmarkForm.new }
 
-  scenario 'testing js', js: true do
-    visit '/'
-    expect(page).not_to have_content('New bookmark')
+  scenario 'User adds new bookmark', js: true do
+    page.open
+    form_new.open
+    form_new.submit(
+      title: 'Some title',
+      url: 'http://example.com/foobar'
+    )
 
-    within('.bookmark-list__heading') do
-      click_button 'Add'
-    end
-
-    expect(page).to have_content('New bookmark')
+    expect(page).to be_open
+    expect(form_new).not_to be_visible
+    expect(page).to have_bookmark(title: 'Some title')
   end
 
   xscenario 'User visits bookmarks list' do
