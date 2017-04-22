@@ -1,14 +1,28 @@
-h1 {
-  @extend .col-12;
+@mixin build-heading($font-size, $v-padding, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
 
-  font-size: ms(1);
-  line-height: vr(2);
+  // Reset bootstrap
   margin-bottom: 0;
-  // Not using shorthand `padding` to avoid overriding right/left
-  padding-bottom: vr(1);
-  padding-top: vr(1);
 
-  .css-debug & {
-    background: CadetBlue;
-  }
+  // Not using shorthand `padding` here to avoid overriding
+  // right/left values
+  padding-bottom: $v-padding;
+  padding-top: $v-padding;
+}
+
+h1 {
+  @include build-heading(
+    $font-size: ms(1),
+    $line-height: vr(2),
+    $v-padding: vr(1)
+  );
+}
+
+h2 {
+  @include build-heading(
+    $font-size: ms(0),
+    $line-height: vr(1.5),
+    $v-padding: vr(0.25)
+  );
 }

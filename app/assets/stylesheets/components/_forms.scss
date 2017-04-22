@@ -1,0 +1,33 @@
+@mixin base-form-control {
+  font-size: ms(0);
+  height: vr(2.5);
+  line-height: vr(2.5);
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.control-label {
+  display: block;
+  font-size: ms(-1);
+  line-height: vr(1);
+  margin: vr(1) 0 vr(0.5);
+}
+
+.form-control {
+  @include base-form-control;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-submit {
+  @include base-form-control;
+  @extend .btn-success;
+
+  margin-top: vr(1);
+
+  &:hover {
+    cursor: pointer;
+  }
+}

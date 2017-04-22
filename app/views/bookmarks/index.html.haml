@@ -1,5 +1,14 @@
 .bookmark-list__page
-  %h1 Your bookmarks
+  %h1.bookmark-list__heading Your bookmarks
+
+  = simple_form_for @new_bookmark, html: { class: 'bookmark-form--new' } do |f|
+    %h2 New bookmark
+    = f.input :title
+    = f.input :url
+    = f.input :shortening
+
+    = f.button :submit, class: 'form-submit'
+
 
   %ul.bookmark-list
     = render @bookmarks

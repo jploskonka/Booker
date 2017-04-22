@@ -1,11 +1,25 @@
-body.css-debug::before {
-  background: linear-gradient(to bottom, $baseline-color,  $baseline-color 1px, transparent 1px, transparent);
-  background-size: vr() vr();
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 1000000;
-  pointer-events: none;
-}
+body.css-debug {
+  // baseline overlay to keep vertical rhythm
+  &::before {
+    background: linear-gradient(to bottom, $baseline-color,  $baseline-color 1px, transparent 1px, transparent);
+    background-size: vr() vr();
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1000000;
+    pointer-events: none;
+  }
 
+  // Nicer colors to see where things actually are
+  h1 { background: CadetBlue; }
+  h2 { background: Maroon; }
+
+  .bookmark-list { background: FireBrick; }
+  .bookmark-list__item {
+    &:nth-child(odd)  { background: Fuchsia; }
+    &:nth-child(even) { background: GreenYellow; }
+  }
+
+  .control-label { background: DarkViolet; }
+}

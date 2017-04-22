@@ -1,11 +1,14 @@
 .bookmark-list__page {
-  @extend .row;
+  @extend .container;
+}
+
+.bookmark-list__heading {
+  @extend .col-12;
 }
 
 .bookmark-list {
   @extend .col-12;
-
-  width: 100%;
+  padding: 0;
 }
 
 .bookmark-list__item {
@@ -23,8 +26,12 @@
     border-bottom: none;
   }
 
-  .css-debug & {
-    background: Fuchsia;
-    border-color: LemonChiffon;
-  }
+}
+
+.bookmark-form--new {
+  @extend .col-12, .card;
+
+  padding-bottom: vr(1);
+  padding-top: vr(1);
+
 }
