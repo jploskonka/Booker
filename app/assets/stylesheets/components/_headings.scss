@@ -1,0 +1,14 @@
+h1 {
+  @extend .col-12;
+
+  font-size: ms(1);
+  line-height: vr(2);
+  margin-bottom: 0;
+  // Not using shorthand `padding` to avoid overriding right/left
+  padding-bottom: vr(1);
+  padding-top: vr(1);
+
+  .css-debug & {
+    background: CadetBlue;
+  }
+}

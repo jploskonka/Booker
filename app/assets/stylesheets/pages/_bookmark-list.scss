@@ -1,0 +1,30 @@
+.bookmark-list__page {
+  @extend .row;
+}
+
+.bookmark-list {
+  @extend .col-12;
+
+  width: 100%;
+}
+
+.bookmark-list__item {
+  @extend .list-group-item;
+
+  height: vr(3);
+  justify-content: space-between;
+
+  // Bootstrap uses -1 bottom margin to prevent
+  // `double` borders what results in breaking up vertical rhythm.
+  // Instead of that just reset border on all elements except
+  // the last one.
+  margin-bottom: 0;
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .css-debug & {
+    background: Fuchsia;
+    border-color: LemonChiffon;
+  }
+}

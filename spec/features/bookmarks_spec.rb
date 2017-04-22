@@ -3,6 +3,14 @@ require 'rails_helper'
 feature 'Bookmark list' do
   let!(:bookmark) { create(:bookmark) }
 
+  scenario 'User visits bookmarks list' do
+    visit '/'
+
+    within '.bookmark-list' do
+      expect(page).to have_content(bookmark.title)
+    end
+  end
+
   scenario 'User adds bookmark' do
     visit '/'
 

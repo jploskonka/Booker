@@ -1,0 +1,6 @@
+%li.bookmark-list__item
+  %a.bookmark-list__link{ href: bookmark.url }
+    = bookmark.title
+
+  %a.bookmark-list__edit{ href: edit_bookmark_path(bookmark) }
+    = fa_icon('edit')
