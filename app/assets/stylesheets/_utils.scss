@@ -1,0 +1,11 @@
+$baseline-color: rgba(cyan, .3);
+
+$modularscale: (
+  base: 1rem, // bootstrap is using rems
+  ratio: $augmented-fourth, // it looks nice and `augmented` sounds serious
+);
+
+@function vr($factor: 1) {
+  @return $factor * ms(0);
+}
+

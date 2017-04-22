@@ -2,39 +2,7 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
-$overlay-color: rgba(cyan, .3);
+@import 'utils';
+@import 'debug';
 
-$modularscale: (
-  base: 1rem, // bootstrap is using rems
-  ratio: $augmented-fourth, // it looks nice and `augmented` sounds serious
-);
-
-@function vr($factor: 1) {
-  @return $factor * ms(0);
-}
-
-body.css-debug::before {
-  background: linear-gradient(to bottom, $overlay-color,  $overlay-color 1px, transparent 1px, transparent);
-  background-size: vr() vr();
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 1000000;
-  pointer-events: none;
-}
-
-.topbar {
-  @extend .col-12, .bg-inverse;
-
-  height: vr(3);
-  line-height: vr(3);
-}
-
-.topbar__name {
-  @extend .text-white;
-
-  font-size: ms(1);
-
-  &:hover { text-decoration: none; }
-}
+@import 'components/topbar';

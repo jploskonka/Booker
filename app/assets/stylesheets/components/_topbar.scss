@@ -1,0 +1,14 @@
+.topbar {
+  @extend .col-12, .bg-inverse;
+
+  height: vr(3);
+  line-height: vr(3);
+}
+
+.topbar__name {
+  @extend .text-white;
+
+  font-size: ms(1);
+
+  &:hover { text-decoration: none; }
+}
