@@ -17,14 +17,18 @@ class BookmarksController < ApplicationController
     if @new_bookmark.save
       redirect_to root_url
     else
-      render action: :index
+      render :index
     end
   end
 
   def update
-    Bookmark.find(params[:id]).update!(bookmark_params)
+    @bookmark = Bookmark.find(params[:id])
 
-    redirect_to root_url
+    if @bookmark.update(bookmark_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   def destroy

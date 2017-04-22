@@ -1,4 +1,2 @@
-%h1 Edit bookmark #{@bookmark.title}
-
-#bookmark-edit-form
-  = render 'form', bookmark: @bookmark
+.bookmark-edit__page
+  = render 'form', bookmark: @bookmark, headline: "Edit #{@bookmark.title}", html_class: 'bookmark-form--edit'

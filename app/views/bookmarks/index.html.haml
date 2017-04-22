@@ -3,7 +3,7 @@
     Your bookmarks
     %button.bookmark-add-btn= fa_icon('plus')
 
-  = render 'form', bookmark: @new_bookmark, headline: 'New bookmark'
+  = render 'form', bookmark: @new_bookmark, headline: 'New bookmark', html_class: 'bookmark-form--new'
 
   %ul.bookmark-list
     = render @bookmarks
