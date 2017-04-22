@@ -28,20 +28,25 @@
 
 }
 
+.bookmark-add-btn {
+  @extend .btn, .btn-secondary, .pull-right;
+  @include v-padding;
+
+  height: vr(2);
+  line-height: vr(2);
+}
+
 .bookmark-form--new {
   @extend .col-12, .card;
+  @include v-padding(vr(1));
 
   box-shadow: 0px 0px vr(1) rgba(#000, .3);
   display: none;
   left: $grid-gutter-width-base/2;
-  padding-bottom: vr(1);
-  padding-top: vr(1);
   position: absolute;
   right: $grid-gutter-width-base/2;
   width: auto;
   z-index: $zindex-popover;
 
-  &.active {
-    display: flex;
-  }
+  &.active { display: flex; }
 }

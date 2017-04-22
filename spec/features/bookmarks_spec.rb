@@ -21,6 +21,15 @@ feature 'Bookmark list' do
     expect(page).to have_bookmark(title: 'Some title')
   end
 
+  scenario 'User creates bookmark with empty form', js: true do
+    page.open
+    form_new.open
+    form_new.submit
+
+    expect(page).to be_open
+    expect(form_new).to be_visible
+  end
+
   xscenario 'User visits bookmarks list' do
     visit '/'
 

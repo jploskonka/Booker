@@ -1,7 +1,7 @@
 module Pages
   class BookmarkList
     include Capybara::DSL
-    PATH = '/'
+    PATH = '/bookmarks'
 
     def open
       visit PATH

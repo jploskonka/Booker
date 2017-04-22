@@ -1,6 +1,9 @@
 class BookmarksController < ApplicationController
-  def index
+  before_action do
     @bookmarks = Bookmark.all
+  end
+
+  def index
     @new_bookmark = Bookmark.new
   end
 
@@ -9,9 +12,13 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    Bookmark.create!(bookmark_params)
+    @new_bookmark = Bookmark.new(bookmark_params)
 
-    redirect_to root_url
+    if @new_bookmark.save
+      redirect_to root_url
+    else
+      render action: :index
+    end
   end
 
   def update

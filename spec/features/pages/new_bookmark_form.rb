@@ -4,14 +4,14 @@ module Pages
 
     def open
       within '.bookmark-list__heading' do
-        click_button 'Add'
+        click_on class: 'bookmark-add-btn'
       end
     end
 
-    def submit(title:, url:, shortening: '')
+    def submit(title: '', url: '', shortening: '')
       within el do
-        fill_in 'bookmark_title', with: title
-        fill_in 'bookmark_url', with: url
+        fill_in 'bookmark_title',      with: title
+        fill_in 'bookmark_url',        with: url
         fill_in 'bookmark_shortening', with: shortening
 
         click_button 'Create Bookmark'

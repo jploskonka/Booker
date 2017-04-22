@@ -7,13 +7,14 @@ describe 'Bookmarks' do
     it 'renders list of bookmarks' do
       get '/'
 
-      expect(response).to have_http_status(:ok)
+      expect(response).to redirect_to('/bookmarks')
+      follow_redirect!
       expect(response.body).to include(*bookmarks.map(&:title))
     end
   end
 
   describe 'POST /bookmarks' do
-    context 'when params are correct' do
+    context 'with correct params' do
       let(:params) do
         { bookmark: attributes_for(:bookmark) }
       end
@@ -24,6 +25,20 @@ describe 'Bookmarks' do
         }.to change(Bookmark, :count).by(1)
 
         expect(response).to redirect_to('/')
+      end
+    end
+
+    context 'with incorrect params' do
+      let(:params) do
+        { bookmark: attributes_for(:bookmark).except(:title) }
+      end
+
+      it 'does not create bookmark' do
+        expect {
+          post '/bookmarks', params: params
+        }.not_to change(Bookmark, :count)
+
+        expect(response).not_to redirect_to('/')
       end
     end
   end
