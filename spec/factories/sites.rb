@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :site do
-    url { Faker::Internet.url }
+    url { Faker::Internet.unique.url }
   end
 end
