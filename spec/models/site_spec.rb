@@ -7,4 +7,6 @@ describe Site do
 
     include_examples 'url format validation', :site
   end
+
+  it { is_expected.to have_many(:bookmarks) }
 end

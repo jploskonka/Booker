@@ -12,7 +12,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    site = Site.new(url: bookmark_params["url"].split('/')[0..2].join('/'))
     @new_bookmark = Bookmark.new(bookmark_params)
+    @new_bookmark.site = site
 
     if @new_bookmark.save
       redirect_to root_url
