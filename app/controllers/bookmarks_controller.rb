@@ -12,7 +12,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    site = Site.new(url: bookmark_params["url"].split('/')[0..2].join('/'))
+    site_url = bookmark_params["url"].split('/')[0..2].join('/')
+    site = Site.find_by(url: site_url) || Site.new(url: site_url)
     @new_bookmark = Bookmark.new(bookmark_params)
     @new_bookmark.site = site
 

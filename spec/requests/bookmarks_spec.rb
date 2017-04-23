@@ -17,17 +17,17 @@ describe 'Bookmarks' do
     subject(:perform_request) { post '/bookmarks', params: params }
 
     context 'with correct params' do
+      let(:domain)         { Faker::Internet.domain_name }
+      let(:path)           { Faker::Internet.slug }
+      let(:url)            { Faker::Internet.url(domain, "/#{path}") }
+      let(:bookmark_attrs) { attributes_for(:bookmark, url: url) }
+      let(:bookmark)       { Bookmark.last }
+
+      let(:params) do
+        { bookmark: bookmark_attrs }
+      end
+
       context 'when matching Site record does not exist' do
-        let(:domain)         { Faker::Internet.domain_name }
-        let(:path)           { Faker::Internet.slug }
-        let(:url)            { Faker::Internet.url(domain, "/#{path}") }
-        let(:bookmark_attrs) { attributes_for(:bookmark, url: url) }
-        let(:bookmark)       { Bookmark.last }
-
-        let(:params) do
-          { bookmark: bookmark_attrs }
-        end
-
         it 'creates new Bookmark' do
           expect { perform_request }.to change(Bookmark, :count).by(1)
         end
@@ -40,6 +40,24 @@ describe 'Bookmarks' do
           perform_request
 
           expect(bookmark.site.url).to eq("http://#{domain}")
+        end
+      end
+
+      context 'when matching Site already exist' do
+        let!(:site) { create(:site, url: "http://#{domain}") }
+
+        it 'creates new Bookmark' do
+          expect { perform_request }.to change(Bookmark, :count).by(1)
+        end
+
+        it 'does not create new Site' do
+          expect { perform_request }.not_to change(Site, :count)
+        end
+
+        it 'connects bookmark with site' do
+          perform_request
+
+          expect(bookmark.site.id).to eq(site.id)
         end
       end
     end
