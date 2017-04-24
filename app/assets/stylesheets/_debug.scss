@@ -15,6 +15,8 @@ body.css-debug {
   h1 { background: CadetBlue; }
   h2 { background: Maroon; }
 
+  .bookmark-list__search-form { background: LightSteelBlue; }
+
   .bookmark-list { background: FireBrick; }
   .bookmark-list__item {
     &:nth-child(odd)  { background: Fuchsia; }

@@ -5,5 +5,10 @@
 
   = render 'form', bookmark: @new_bookmark, headline: 'New bookmark', html_class: 'bookmark-form--new'
 
+  = simple_form_for :search, url: bookmarks_path, method: :get, html: { class: 'bookmark-list__search-form' } do |f|
+    = f.input :query, label: false, placeholder: 'Filter', required: false
+    = f.button :button, class: 'bookmark-list__search-form__submit' do
+      = fa_icon('search')
+
   %ul.bookmark-list
     = render @sites
