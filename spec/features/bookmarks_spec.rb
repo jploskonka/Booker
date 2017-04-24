@@ -5,7 +5,7 @@ require_relative 'pages/bookmark_edit'
 require_relative 'pages/new_bookmark_form'
 
 feature 'Bookmark list', js: true do
-  let!(:bookmark)    { create(:bookmark) }
+  let!(:bookmark)    { create(:bookmark, url: 'http://some-url.com/my/path/is/very-long') }
 
   let(:new_bookmark) { build(:bookmark)}
   let(:list_page)    { Pages::BookmarkList.new }
@@ -16,6 +16,7 @@ feature 'Bookmark list', js: true do
     list_page.open
 
     expect(list_page).to have_bookmark(bookmark)
+    expect(list_page).to have_site_heading('http://some-url.com')
     expect(form_new).not_to be_visible
   end
 

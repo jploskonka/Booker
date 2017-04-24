@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   before_action do
     @bookmarks = Bookmark.all
+    @sites = Site.all
   end
 
   def index
@@ -12,7 +13,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @new_bookmark = BookmarkCreator.new(bookmark_params).call
+    @new_bookmark = Bookmark.new(bookmark_params)
 
     if @new_bookmark.save
       redirect_to root_url

@@ -6,7 +6,7 @@ shared_examples 'url format validation' do |factory|
   end
 
   context 'with correct url' do
-    subject { build(factory) }
+    subject { build(factory, url: Faker::Internet.url) }
 
     it { is_expected.to be_valid }
   end

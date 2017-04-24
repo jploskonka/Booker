@@ -6,9 +6,14 @@
   @extend .col-12;
 }
 
-.bookmark-list {
+.bookmark-list,
+.bookmark-list__bookmarks {
   @extend .col-12;
   padding: 0;
+}
+
+.bookmark-list__site-url {
+  margin-top: vr(1);
 }
 
 .bookmark-list__item {
@@ -64,3 +69,4 @@
 
   &.active { display: flex; }
 }
+
