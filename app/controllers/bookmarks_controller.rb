@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @new_bookmark = Bookmark.new(bookmark_params)
+    @new_bookmark = BookmarkCreator.new(bookmark_params).call
 
     if @new_bookmark.save
       redirect_to root_url

@@ -13,36 +13,6 @@ describe 'Bookmarks' do
     end
   end
 
-  describe 'POST /bookmarks' do
-    context 'with correct params' do
-      let(:params) do
-        { bookmark: attributes_for(:bookmark) }
-      end
-
-      it 'creates new bookmark' do
-        expect {
-          post '/bookmarks', params: params
-        }.to change(Bookmark, :count).by(1)
-
-        expect(response).to redirect_to('/')
-      end
-    end
-
-    context 'with incorrect params' do
-      let(:params) do
-        { bookmark: attributes_for(:bookmark).except(:title) }
-      end
-
-      it 'does not create bookmark' do
-        expect {
-          post '/bookmarks', params: params
-        }.not_to change(Bookmark, :count)
-
-        expect(response).not_to redirect_to('/')
-      end
-    end
-  end
-
   describe 'PUT /bookmarks/:id' do
     let!(:bookmark) { create(:bookmark) }
 
