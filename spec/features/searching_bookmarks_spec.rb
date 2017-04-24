@@ -17,6 +17,13 @@ feature 'Searching bookmarks' do
     expect(list_page).not_to have_bookmark(bookmarks[1])
   end
 
+  scenario 'User search for existing bookmark [matching url]' do
+    list_page.search(bookmarks[0].url)
+
+    expect(list_page).to have_bookmark(bookmarks[0])
+    expect(list_page).not_to have_bookmark(bookmarks[1])
+  end
+
   scenario 'User search for non matching bookmark' do
     list_page.search('There is no bookmark like this one for sure!')
 
