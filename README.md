@@ -1,26 +1,49 @@
+# Bookmarks manager
 [![Build Status](https://travis-ci.org/jploskonka/Booker.svg?branch=master)](https://travis-ci.org/jploskonka/Booker)
+Simple application to store bookmarks to your favourite web pages.
 
-# README
+## Live version
+Application is deployed to heroku, check it out
+[here](http://bookmanon.herokuapp.com) (it uses free Heroku trial so first
+request may be little bit slow).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
+Clone the repository:
+```
+git clone git@github.com:jploskonka/Booker.git
+```
 
-Things you may want to cover:
+Install dependencies:
+```
+$ cd Booker # go into cloned directory
+$ bundle install
+```
 
-* Ruby version
+Update `config/database.yml` with correct values if necessary and setup database:
+```
+$ bundle exec rake db:setup
+```
+This will create database for you and create tables based on `db/schema.rb`
+file.
 
-* System dependencies
+Finally run the development server:
+```
+$ bundle exec rails s
+```
 
-* Configuration
+Now just open [`http://localhost:3000`](http://localhost:3000) in your favourite browser, happy coding!
 
-* Database creation
+## Testing
+I'm using Rspec and Capybara as testing tools. To run tests just use:
+```
+bundle exec rspec
+```
 
-* Database initialization
+There's also TravisCI configured for repository, you can check it out
+[here](https://travis-ci.org/jploskonka/Booker).
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Dependencies
+Ruby v2.4.0 (Suggested way to install it is to use [rbenv](https://github.com/rbenv/rbenv))
+[Postgresql](https://www.postgresql.org/download/)
+qt5+ (for capybara-webkit, more info
+[here](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit))
