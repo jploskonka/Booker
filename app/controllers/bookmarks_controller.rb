@@ -32,12 +32,6 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def destroy
-    Bookmark.find(params[:id]).destroy!
-
-    redirect_to root_url
-  end
-
   private
 
   def bookmark_params

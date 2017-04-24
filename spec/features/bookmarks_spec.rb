@@ -60,15 +60,4 @@ feature 'Bookmark list', js: true do
     expect(list_page).to have_bookmark(new_bookmark)
     expect(list_page).not_to have_bookmark(bookmark)
   end
-
-  xscenario 'User removes bookmark' do
-    visit '/'
-
-    within '#bookmark-list' do
-      click_link('delete')
-    end
-
-    expect(page).to have_current_path('/')
-    expect(page).not_to have_content(bookmark.title)
-  end
 end
