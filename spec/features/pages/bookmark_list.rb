@@ -23,7 +23,7 @@ module Pages
       within(SEARCH_FORM) do
         fill_in 'search_query', with: query
 
-        click_on class: 'search-submit-btn'
+        click_on class: 'bookmark-list__search-form__submit'
       end
     end
 
