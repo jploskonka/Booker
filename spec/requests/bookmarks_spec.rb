@@ -32,16 +32,4 @@ describe 'Bookmarks' do
       end
     end
   end
-
-  describe 'DELETE /bookmarks/:id' do
-    let!(:bookmark) { create(:bookmark) }
-
-    it 'deletes bookmark' do
-      expect {
-        delete "/bookmarks/#{bookmark.id}"
-      }.to change(Bookmark, :count).by(-1)
-
-      expect(response).to redirect_to('/')
-    end
-  end
 end
