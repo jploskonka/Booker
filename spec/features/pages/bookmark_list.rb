@@ -26,5 +26,11 @@ module Pages
         page.has_link?(bookmark.title)
       end
     end
+
+    def has_site_heading?(content)
+      within(LIST_EL) do
+        page.has_content?(content)
+      end
+    end
   end
 end

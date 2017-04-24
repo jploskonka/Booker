@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   before_action do
     @bookmarks = Bookmark.all
+    @sites = Site.all
   end
 
   def index
