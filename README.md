@@ -33,6 +33,10 @@ $ bundle exec rails s
 
 Now just open [`http://localhost:3000`](http://localhost:3000) in your favourite browser, happy coding!
 
+### CSS debug mode
+For easier css development make sure to add `?css-debug=please` parameter to see
+page in better colors! :)
+
 ## Testing
 I'm using Rspec and Capybara as testing tools. To run tests just use:
 ```
