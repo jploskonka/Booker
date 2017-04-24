@@ -8,6 +8,14 @@
 
 .bookmark-list__search-form {
   @extend .form-inline;
+
+  margin-top: vr(0.5);
+}
+
+.bookmark-list__search-form__submit {
+  @extend .btn, .btn-info;
+
+  margin-left: $grid-gutter-width-base/2;
 }
 
 .bookmark-list,
@@ -72,10 +80,4 @@
   z-index: $zindex-popover;
 
   &.active { display: flex; }
-}
-
-
-//TODO: separate file
-.search-form {
-  @extend .form-inline;
 }
