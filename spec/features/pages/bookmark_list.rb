@@ -4,8 +4,10 @@ module Pages
 
     PATH           = '/bookmarks'
     LIST_EL        = '.bookmark-list'
-    ITEM_EL      = '.bookmark-list__item'
+    ITEM_EL        = '.bookmark-list__item'
     ITEM_EDIT_LINK = '.bookmark-list__edit'
+
+    SEARCH_FORM    = '.bookmark-list__search-form'
 
     def open
       visit(PATH)
@@ -14,6 +16,14 @@ module Pages
     def click_edit_link(bookmark)
       within(LIST_EL) do
         find(ITEM_EL, text: bookmark.title).find(ITEM_EDIT_LINK).click
+      end
+    end
+
+    def search(query)
+      within(SEARCH_FORM) do
+        fill_in 'search_query', with: query
+
+        click_on class: 'search-submit-btn'
       end
     end
 

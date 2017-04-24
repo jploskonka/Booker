@@ -12,17 +12,17 @@ feature 'Bookmark list', js: true do
   let(:edit_page)    { Pages::BookmarkEdit.new(bookmark) }
   let(:form_new)     { Pages::NewBookmarkForm.new }
 
-  scenario 'User visits bookmarks list' do
+  background do
     list_page.open
+  end
 
+  scenario 'User visits bookmarks list' do
     expect(list_page).to have_bookmark(bookmark)
     expect(list_page).to have_site_heading('http://some-url.com')
     expect(form_new).not_to be_visible
   end
 
   scenario 'User creates bookmark with correct data' do
-    list_page.open
-
     form_new.open
     form_new.submit(
       title: new_bookmark.title,
@@ -35,7 +35,6 @@ feature 'Bookmark list', js: true do
   end
 
   scenario 'User creates bookmark with empty form' do
-    list_page.open
     form_new.open
     form_new.submit
 
@@ -46,8 +45,6 @@ feature 'Bookmark list', js: true do
   end
 
   scenario 'User edits bookmark' do
-    list_page.open
-
     list_page.click_edit_link(bookmark)
     expect(edit_page).to be_open
 

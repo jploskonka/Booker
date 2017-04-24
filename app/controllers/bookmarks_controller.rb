@@ -1,7 +1,10 @@
 class BookmarksController < ApplicationController
   before_action do
-    @bookmarks = Bookmark.all
-    @sites = Site.all
+    # TODO: Facade, better way to build SQL query
+    # NOTE: Check up against sql injection
+    query = params[:search] ? params[:search][:query] : nil
+    @bookmarks = BookmarkFilterer.new(query).call
+    @sites = Site.where(id: @bookmarks.pluck(:site_id))
   end
 
   def index

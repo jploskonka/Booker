@@ -6,6 +6,10 @@
   @extend .col-12;
 }
 
+.bookmark-list__search-form {
+  @extend .form-inline;
+}
+
 .bookmark-list,
 .bookmark-list__bookmarks {
   @extend .col-12;
@@ -70,3 +74,8 @@
   &.active { display: flex; }
 }
 
+
+//TODO: separate file
+.search-form {
+  @extend .form-inline;
+}
