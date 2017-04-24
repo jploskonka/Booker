@@ -12,3 +12,8 @@ development:
 test:
   <<: *default
   database: bookmanon_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>

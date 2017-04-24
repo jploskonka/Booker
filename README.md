@@ -2,6 +2,11 @@
 [![Build Status](https://travis-ci.org/jploskonka/Booker.svg?branch=master)](https://travis-ci.org/jploskonka/Booker)
 Simple application to store bookmarks to your favourite web pages.
 
+## Live version
+Application is deployed to heroku, check it out
+[here](http://bookmanon.herokuapp.com) (it uses free Heroku trial so first
+request may be little bit slow).
+
 ## Development
 Clone the repository:
 ```
